@@ -36,7 +36,7 @@ public class AnagrafeGUI extends javax.swing.JFrame {
         txtNome = new javax.swing.JTextField();
         txtCognome = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtArea = new javax.swing.JTextArea();
         btnAggiungi = new javax.swing.JButton();
         btnElimina = new javax.swing.JButton();
         btnCerca = new javax.swing.JButton();
@@ -52,10 +52,10 @@ public class AnagrafeGUI extends javax.swing.JFrame {
 
         lblCognome.setText("Cognome");
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtArea.setEditable(false);
+        txtArea.setColumns(20);
+        txtArea.setRows(5);
+        jScrollPane1.setViewportView(txtArea);
 
         btnAggiungi.setText("Aggiungi");
         btnAggiungi.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +88,11 @@ public class AnagrafeGUI extends javax.swing.JFrame {
         btnSalva.setText("Salva");
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+<<<<<<< HEAD
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
+=======
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+>>>>>>> 399687c1977c446f014cbe6b0b203973f2d3e7bb
         jLabel1.setText("Anagrafe");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -165,6 +169,7 @@ public class AnagrafeGUI extends javax.swing.JFrame {
         String cognome = txtCognome.getText();
         Studente s = new Studente(matricola, nome, cognome);
         n.aggiungiStudente(s);
+        txtArea.setText(n.getTuttiStudenti());
     }//GEN-LAST:event_btnAggiungiActionPerformed
 
     private void btnEliminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaActionPerformed
@@ -177,11 +182,12 @@ public class AnagrafeGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         String matricola = txtMatricola.getText();
         n.cercaStudente(matricola);
+        txtArea.setText(matricola);
     }//GEN-LAST:event_btnCercaActionPerformed
 
     private void btnCaricaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaricaActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_btnCaricaActionPerformed
 
     /**
@@ -217,10 +223,10 @@ public class AnagrafeGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnSalva;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblCognome;
     private javax.swing.JLabel lblMatricola;
     private javax.swing.JLabel lblNome;
+    private javax.swing.JTextArea txtArea;
     private javax.swing.JTextField txtCognome;
     private javax.swing.JTextField txtMatricola;
     private javax.swing.JTextField txtNome;
