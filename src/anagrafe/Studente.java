@@ -12,8 +12,7 @@ public class Studente {
     private String matricola;
     private String nome;
     private String cognome;
-
-   
+       
     
      // costruttore
     public Studente(String matricola, String nome, String cognome) {
