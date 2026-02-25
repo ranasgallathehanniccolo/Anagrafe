@@ -88,12 +88,9 @@ public class AnagrafeGUI extends javax.swing.JFrame {
         btnSalva.setText("Salva");
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-<<<<<<< HEAD
-        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
-=======
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
->>>>>>> 399687c1977c446f014cbe6b0b203973f2d3e7bb
-        jLabel1.setText("Anagrafe");
+		jLabel1.setForeground(new java.awt.Color(255, 51, 51));
+		jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		jLabel1.setText("Anagrafe");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
