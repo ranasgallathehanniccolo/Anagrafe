@@ -13,12 +13,16 @@ public class Studente {
     private String nome;
     private String cognome;
 
+     /**
+     * Costruttore
+     */
     public Studente(String matricola, String nome, String cognome) {
         this.matricola = matricola;
         this.nome = nome;
         this.cognome = cognome;
     }
 
+    //G&S
     public String getMatricola() {
         return matricola;
     }

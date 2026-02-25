@@ -13,7 +13,7 @@ import java.util.HashSet;
  */
 public class Anagrafe {
    
-    // Strutture dati obbligatorie
+    // Strutture dati
     private ArrayList<Studente> listaStudenti;
     private HashSet<String> insiemeMatricole;
     private HashMap<String, Studente> mappaStudenti;
@@ -26,16 +26,16 @@ public class Anagrafe {
     }
 
     /**
-     * Aggiunge uno studente alle strutture dati.
-     * @param s L'oggetto Studente da aggiungere
-     * @return true se l'inserimento ha successo, false se la matricola esiste già o lo studente è null
+     * Aggiunge uno studente alle strutture dati
+     * @param s è l'oggetto Studente da aggiungere
+     * @return true se l'inserimento ha successo, false altrimenti
      */
     public boolean aggiungiStudente(Studente s) {
         if (s == null || s.getMatricola() == null) {
             return false;
         }
         
-        // Controllo tramite HashSet se la matricola è già presente (ricerca O(1))
+        // Controllo tramite HashSet se la matricola è già presentetMatric
         if (insiemeMatricole.contains(s.getMatricola())) { 
             return false;
         } else {
@@ -50,9 +50,9 @@ public class Anagrafe {
     }
 
     /**
-     * Elimina uno studente partendo dalla sua matricola.
+     * Elimina uno studente partendo dalla matricola
      * @param matricola La matricola dello studente da rimuovere
-     * @return true se l'eliminazione ha successo, false se la matricola non esiste
+     * @return 
      */
     public boolean eliminaStudente(String matricola) {
         if (matricola == null || !insiemeMatricole.contains(matricola)) {
@@ -66,14 +66,13 @@ public class Anagrafe {
         listaStudenti.remove(s);
         insiemeMatricole.remove(matricola);
         mappaStudenti.remove(matricola);
-
-        return true;
+            return true;
     }
 
     /**
-     * Cerca uno studente partendo dalla matricola.
-     * @param matricola La matricola da cercare
-     * @return L'oggetto Studente se trovato, altrimenti null
+     * Cerca uno studente partendo dalla matricola
+     * @param matricola
+     * @return l'ogeetto studente
      */
     public Studente cercaStudente(String matricola) {
         // La HashMap permette una ricerca efficiente in O(1)
@@ -81,7 +80,7 @@ public class Anagrafe {
     }
 
     /**
-     * Restituisce tutti gli studenti memorizzati.
+     * Restituisce tutti gli studenti memorizzati
      * @return Una Collection contenente tutti gli studenti
      */
     public Collection<Studente> getTuttiStudenti() {
@@ -89,7 +88,7 @@ public class Anagrafe {
     }
 
     /**
-     * Restituisce il numero totale di studenti registrati.
+     * Restituisce il numero totale di studenti registrati
      * @return Il numero di studenti
      */
     public int numeroStudenti() {
@@ -97,8 +96,7 @@ public class Anagrafe {
     }
     
     /**
-     * METODO EXTRA UTILE PER LA GUI: Svuota l'anagrafe 
-     * (Molto comodo prima di caricare i dati da file per non duplicare le voci)
+     * Svuota l'anagrafe 
      */
     public void svuotaAnagrafe() {
         listaStudenti.clear();
