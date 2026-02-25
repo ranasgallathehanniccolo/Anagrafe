@@ -21,8 +21,10 @@ public class GestioneFile {
      * @return Un ArrayList contenente gli studenti caricati dal file
      */
     public ArrayList<Studente> caricaDaFile(String nomeFile) {
+        
         ArrayList<Studente> studentiCaricati = new ArrayList<>();
         File file = new File(nomeFile);
+        
 
         // Se il file non esiste ancora, ritorniamo una lista vuota senza errori
         if (!file.exists()) {
