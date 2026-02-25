@@ -13,9 +13,9 @@ public class Studente {
     private String nome;
     private String cognome;
 
-     /**
-     * Costruttore
-     */
+   
+    
+     // costruttore
     public Studente(String matricola, String nome, String cognome) {
         this.matricola = matricola;
         this.nome = nome;

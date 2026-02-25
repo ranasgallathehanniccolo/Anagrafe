@@ -16,8 +16,9 @@ import java.util.Collection;
 public class GestioneFile {
 
     /**
-     * Legge i dati dal file di testo e crea una lista di oggetti Studente.
-     * * @param nomeFile Il percorso o nome del file da leggere (es. "studenti.txt")
+     * Legge i dati dal file di testo e crea una lista di oggetti Studente
+     * 
+     * * @param nomeFile Il percorso o nome del file da leggere
      * @return Un ArrayList contenente gli studenti caricati dal file
      */
     public ArrayList<Studente> caricaDaFile(String nomeFile) {
