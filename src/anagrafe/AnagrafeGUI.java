@@ -156,13 +156,17 @@ public class AnagrafeGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAggiungiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggiungiActionPerformed
-        // TODO add your handling code here:
-        String matricola = txtMatricola.getText();
-        String nome = txtNome.getText();
-        String cognome = txtCognome.getText();
-        Studente s = new Studente(matricola, nome, cognome);
-        n.aggiungiStudente(s);
-        //txtArea.setText(n.getTuttiStudenti());
+      // TODO add your handling code here:
+String matricola = txtMatricola.getText();
+String nome = txtNome.getText();
+String cognome = txtCognome.getText();
+Studente s = new Studente(matricola, nome, cognome);
+n.aggiungiStudente(s);
+txtArea.setText(n.getTuttiStudenti());
+
+txtMatricola.setText("");
+txtNome.setText("");
+txtCognome.setText("");
     }//GEN-LAST:event_btnAggiungiActionPerformed
 
     private void btnEliminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaActionPerformed
