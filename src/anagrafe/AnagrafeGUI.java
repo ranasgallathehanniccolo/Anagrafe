@@ -4,6 +4,10 @@
  */
 package anagrafe;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 /**
  *
  * @author ranasgalla.niccolo
@@ -166,7 +170,8 @@ public class AnagrafeGUI extends javax.swing.JFrame {
         String cognome = txtCognome.getText();
         Studente s = new Studente(matricola, nome, cognome);
         n.aggiungiStudente(s);
-        txtArea.setText(n.getTuttiStudenti());
+//        txtArea.setText(n.getTuttiStudenti());
+        
     }//GEN-LAST:event_btnAggiungiActionPerformed
 
     private void btnEliminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaActionPerformed
@@ -190,12 +195,19 @@ public class AnagrafeGUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+         FileWriter fw = null;
+         //PrintWriter pw = null;
+        //pw.flush();
+        //creazione file
+        fw = new FileWriter("anagrafe.txt", true);
+       // pw = new PrintWriter(fw);
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
