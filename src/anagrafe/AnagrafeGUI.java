@@ -169,7 +169,7 @@ public class AnagrafeGUI extends javax.swing.JFrame {
         String cognome = txtCognome.getText();
         Studente s = new Studente(matricola, nome, cognome);
         n.aggiungiStudente(s);
-        //txtArea.setText(n.getTuttiStudenti());
+        txtArea.setText(n.getTuttiStudenti());
     }//GEN-LAST:event_btnAggiungiActionPerformed
 
     private void btnEliminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaActionPerformed
