@@ -17,7 +17,7 @@ public class GestioneFile {
 
     /**
      * Legge i dati dal file di testo e crea una lista di oggetti Studente.
-     * * @param nomeFile Il percorso o nome del file da leggere (es. "studenti.txt")
+     * @param nomeFile Il percorso o nome del file da leggere
      * @return Un ArrayList contenente gli studenti caricati dal file
      */
     public ArrayList<Studente> caricaDaFile(String nomeFile) {
@@ -30,7 +30,6 @@ public class GestioneFile {
             return studentiCaricati;
         }
 
-        // Utilizziamo il try-with-resources per chiudere automaticamente il file
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String linea;
             
