@@ -18,6 +18,7 @@ public class AnagrafeGUI extends javax.swing.JFrame {
     public AnagrafeGUI() {
         initComponents();
     }
+    Anagrafe n = new Anagrafe();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,12 +58,32 @@ public class AnagrafeGUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         btnAggiungi.setText("Aggiungi");
+        btnAggiungi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAggiungiActionPerformed(evt);
+            }
+        });
 
         btnElimina.setText("Elimina");
+        btnElimina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaActionPerformed(evt);
+            }
+        });
 
         btnCerca.setText("Cerca");
+        btnCerca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCercaActionPerformed(evt);
+            }
+        });
 
         btnCarica.setText("Carica");
+        btnCarica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaricaActionPerformed(evt);
+            }
+        });
 
         btnSalva.setText("Salva");
 
@@ -132,6 +153,32 @@ public class AnagrafeGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAggiungiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggiungiActionPerformed
+        // TODO add your handling code here:
+        String matricola = txtMatricola.getText();
+        String nome = txtNome.getText();
+        String cognome = txtCognome.getText();
+        Studente s = new Studente(matricola, nome, cognome);
+        n.aggiungiStudente(s);
+    }//GEN-LAST:event_btnAggiungiActionPerformed
+
+    private void btnEliminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaActionPerformed
+        // TODO add your handling code here:
+        String matricola = txtMatricola.getText();
+        n.eliminaStudente(matricola);
+    }//GEN-LAST:event_btnEliminaActionPerformed
+
+    private void btnCercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCercaActionPerformed
+        // TODO add your handling code here:
+        String matricola = txtMatricola.getText();
+        n.cercaStudente(matricola);
+    }//GEN-LAST:event_btnCercaActionPerformed
+
+    private void btnCaricaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaricaActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnCaricaActionPerformed
 
     /**
      * @param args the command line arguments
