@@ -182,14 +182,18 @@ public class AnagrafeGUI extends javax.swing.JFrame {
         String cognome = txtCognome.getText();
         Studente s = new Studente(matricola, nome, cognome);
         n.aggiungiStudente(s);
-//        txtArea.setText(n.getTuttiStudenti());
-        
+        txtMatricola.setText("");
+        txtNome.setText("");
+        txtCognome.setText("");
     }//GEN-LAST:event_btnAggiungiActionPerformed
 
     private void btnEliminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaActionPerformed
         // TODO add your handling code here:
         String matricola = txtMatricola.getText();
         n.eliminaStudente(matricola);
+        txtMatricola.setText("");
+        txtNome.setText("");
+        txtCognome.setText("");
     }//GEN-LAST:event_btnEliminaActionPerformed
 
     private void btnCercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCercaActionPerformed
@@ -197,6 +201,9 @@ public class AnagrafeGUI extends javax.swing.JFrame {
         String matricola = txtMatricola.getText();
         n.cercaStudente(matricola);
         txtArea.setText(matricola);
+        txtMatricola.setText("");
+        txtNome.setText("");
+        txtCognome.setText("");
     }//GEN-LAST:event_btnCercaActionPerformed
 
     private void btnCaricaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaricaActionPerformed
