@@ -12,13 +12,16 @@ public class Studente {
     private String matricola;
     private String nome;
     private String cognome;
-
+       
+    
+     // costruttore
     public Studente(String matricola, String nome, String cognome) {
         this.matricola = matricola;
         this.nome = nome;
         this.cognome = cognome;
     }
 
+    //G&S
     public String getMatricola() {
         return matricola;
     }

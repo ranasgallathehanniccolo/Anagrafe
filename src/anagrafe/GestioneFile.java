@@ -14,15 +14,17 @@ import java.util.Collection;
 
 
 public class GestioneFile {
-
+  
     /**
-     * Legge i dati dal file di testo e crea una lista di oggetti Studente.
-     * * @param nomeFile Il percorso o nome del file da leggere (es. "studenti.txt")
+     * Legge i dati dal file di testo e crea una lista di oggetti Studente
+     * @param nomeFile Il percorso o nome del file da leggere
      * @return Un ArrayList contenente gli studenti caricati dal file
      */
     public ArrayList<Studente> caricaDaFile(String nomeFile) {
+        
         ArrayList<Studente> studentiCaricati = new ArrayList<>();
         File file = new File(nomeFile);
+        
 
         // Se il file non esiste ancora, ritorniamo una lista vuota senza errori
         if (!file.exists()) {
@@ -30,7 +32,6 @@ public class GestioneFile {
             return studentiCaricati;
         }
 
-        // Utilizziamo il try-with-resources per chiudere automaticamente il file
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String linea;
             

@@ -4,6 +4,10 @@
  */
 package anagrafe;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 /**
  *
  * @author ranasgalla.niccolo
@@ -18,6 +22,7 @@ public class AnagrafeGUI extends javax.swing.JFrame {
     public AnagrafeGUI() {
         initComponents();
     }
+    Anagrafe n = new Anagrafe();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,12 +40,13 @@ public class AnagrafeGUI extends javax.swing.JFrame {
         txtNome = new javax.swing.JTextField();
         txtCognome = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtArea = new javax.swing.JTextArea();
         btnAggiungi = new javax.swing.JButton();
         btnElimina = new javax.swing.JButton();
         btnCerca = new javax.swing.JButton();
         btnCarica = new javax.swing.JButton();
         btnSalva = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,61 +56,83 @@ public class AnagrafeGUI extends javax.swing.JFrame {
 
         lblCognome.setText("Cognome");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtArea.setEditable(false);
+        txtArea.setColumns(20);
+        txtArea.setRows(5);
+        jScrollPane1.setViewportView(txtArea);
 
         btnAggiungi.setText("Aggiungi");
+        btnAggiungi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAggiungiActionPerformed(evt);
+            }
+        });
 
         btnElimina.setText("Elimina");
+        btnElimina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaActionPerformed(evt);
+            }
+        });
 
         btnCerca.setText("Cerca");
+        btnCerca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCercaActionPerformed(evt);
+            }
+        });
 
         btnCarica.setText("Carica");
+        btnCarica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaricaActionPerformed(evt);
+            }
+        });
 
         btnSalva.setText("Salva");
+
+        jLabel1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+		jLabel1.setForeground(new java.awt.Color(255, 51, 51));
+		jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		jLabel1.setText("Anagrafe");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAggiungi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCognome)
+                    .addComponent(lblNome)
+                    .addComponent(lblMatricola)
+                    .addComponent(btnCerca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblNome)
-                            .addComponent(lblCognome)
-                            .addComponent(lblMatricola)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCerca)
-                            .addComponent(btnAggiungi))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnElimina)
-                            .addComponent(txtMatricola, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCognome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                        .addComponent(btnCarica)
-                        .addGap(40, 40, 40)))
+                    .addComponent(txtMatricola)
+                    .addComponent(txtNome)
+                    .addComponent(txtCognome)
+                    .addComponent(btnCarica, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                    .addComponent(btnElimina, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(74, 74, 74)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
             .addGroup(layout.createSequentialGroup()
-                .addGap(96, 96, 96)
+                .addGap(85, 85, 85)
                 .addComponent(btnSalva)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(266, 266, 266))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(9, 9, 9)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -126,24 +154,60 @@ public class AnagrafeGUI extends javax.swing.JFrame {
                         .addGap(51, 51, 51)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnCerca)
-                            .addComponent(btnCarica))
-                        .addGap(34, 34, 34)
-                        .addComponent(btnSalva)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                            .addComponent(btnCarica))))
+                .addGap(18, 18, 18)
+                .addComponent(btnSalva)
+                .addGap(57, 57, 57))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAggiungiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggiungiActionPerformed
+        // TODO add your handling code here:
+        String matricola = txtMatricola.getText();
+        String nome = txtNome.getText();
+        String cognome = txtCognome.getText();
+        Studente s = new Studente(matricola, nome, cognome);
+        n.aggiungiStudente(s);
+//        txtArea.setText(n.getTuttiStudenti());
+        
+    }//GEN-LAST:event_btnAggiungiActionPerformed
+
+    private void btnEliminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaActionPerformed
+        // TODO add your handling code here:
+        String matricola = txtMatricola.getText();
+        n.eliminaStudente(matricola);
+    }//GEN-LAST:event_btnEliminaActionPerformed
+
+    private void btnCercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCercaActionPerformed
+        // TODO add your handling code here:
+        String matricola = txtMatricola.getText();
+        n.cercaStudente(matricola);
+        txtArea.setText(matricola);
+    }//GEN-LAST:event_btnCercaActionPerformed
+
+    private void btnCaricaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaricaActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_btnCaricaActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+         FileWriter fw = null;
+         //PrintWriter pw = null;
+        //pw.flush();
+        //creazione file
+        fw = new FileWriter("anagrafe.txt", true);
+       // pw = new PrintWriter(fw);
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -166,11 +230,12 @@ public class AnagrafeGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnCerca;
     private javax.swing.JButton btnElimina;
     private javax.swing.JButton btnSalva;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblCognome;
     private javax.swing.JLabel lblMatricola;
     private javax.swing.JLabel lblNome;
+    private javax.swing.JTextArea txtArea;
     private javax.swing.JTextField txtCognome;
     private javax.swing.JTextField txtMatricola;
     private javax.swing.JTextField txtNome;
