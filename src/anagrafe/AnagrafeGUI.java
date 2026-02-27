@@ -29,7 +29,7 @@ public class AnagrafeGUI extends javax.swing.JFrame {
         
     }
     Anagrafe n = new Anagrafe();
-
+    GestioneFile g = new GestioneFile();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -97,6 +97,11 @@ public class AnagrafeGUI extends javax.swing.JFrame {
         });
 
         btnSalva.setText("Salva");
+        btnSalva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvaActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
@@ -196,10 +201,13 @@ public class AnagrafeGUI extends javax.swing.JFrame {
 
     private void btnCaricaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaricaActionPerformed
         // TODO add your handling code here:
-        GestioneFile g = new GestioneFile();
-        g.caricaDaFile(Anagrafe.txt);
-
+        g.caricaDaFile("Anagrafe.txt");
     }//GEN-LAST:event_btnCaricaActionPerformed
+
+    private void btnSalvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvaActionPerformed
+        // TODO add your handling code here:
+        g.salvaSuFile("Anagrafe.txt", n.getTuttiStudenti());
+    }//GEN-LAST:event_btnSalvaActionPerformed
 
     /**
      * @param args the command line arguments
