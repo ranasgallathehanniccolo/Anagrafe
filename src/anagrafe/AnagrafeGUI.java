@@ -237,6 +237,7 @@ public class AnagrafeGUI extends javax.swing.JFrame {
 
     private void btnSalvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvaActionPerformed
         // TODO add your handling code here:
+        //Salva gli stundeti della lista nel file
         g.salvaSuFile("Anagrafe.txt", n.getTuttiStudenti());
     }//GEN-LAST:event_btnSalvaActionPerformed
 
