@@ -181,6 +181,7 @@ public class AnagrafeGUI extends javax.swing.JFrame {
         String nome = txtNome.getText();
         String cognome = txtCognome.getText();
         Studente s = new Studente(matricola, nome, cognome);
+        //aggiunge lo studente alle liste
         n.aggiungiStudente(s);
         txtMatricola.setText("");
         txtNome.setText("");
@@ -190,6 +191,7 @@ public class AnagrafeGUI extends javax.swing.JFrame {
     private void btnEliminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaActionPerformed
         // TODO add your handling code here:
         String matricola = txtMatricola.getText();
+        //elimina lo studene dalle liste cercando solo la matricola
         n.eliminaStudente(matricola);
         txtMatricola.setText("");
         txtNome.setText("");
@@ -199,9 +201,9 @@ public class AnagrafeGUI extends javax.swing.JFrame {
     private void btnCercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCercaActionPerformed
         // TODO add your handling code here:
         String matricola = txtMatricola.getText();
-        // 1. Salvo il risultato della ricerca in un oggetto Studente
+        //Salvo il risultato della ricerca in un oggetto Studente
         Studente s = n.cercaStudente(matricola);
-        // 2. Controllo se lo studente è stato effettivamente trovato
+        //Controllo se lo studente è stato effettivamente trovato
         if (s != null) {
             // Se esiste, stampo matricola, nome e cognome andando a capo
             txtArea.setText("Studente Trovato:\n" + "Matricola: " + s.getMatricola() + "\n" + "Nome: " + s.getNome() + "\n"+ "Cognome: " + s.getCognome());
@@ -209,7 +211,6 @@ public class AnagrafeGUI extends javax.swing.JFrame {
             // Se s è null, significa che la matricola non c'è
             txtArea.setText("Nessuno studente trovato con matricola: " + matricola);
         }
-        // 3. Pulisco le caselle di testo
         txtMatricola.setText("");
         txtNome.setText("");
         txtCognome.setText("");

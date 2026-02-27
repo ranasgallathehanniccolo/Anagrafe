@@ -87,22 +87,6 @@ public class Anagrafe {
         return listaStudenti;
     }
 
-    /**
-     * Restituisce il numero totale di studenti registrati
-     * @return Il numero di studenti
-     */
-    public int numeroStudenti() {
-        return listaStudenti.size();
-    }
-    
-    /**
-     * Svuota l'anagrafe 
-     */
-    public void svuotaAnagrafe() {
-        listaStudenti.clear();
-        insiemeMatricole.clear();
-        mappaStudenti.clear();
-    }
 }    
     
 

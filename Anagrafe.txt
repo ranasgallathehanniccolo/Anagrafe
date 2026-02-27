@@ -1,1 +1,2 @@
-120:Alessio:Bino
+130:Pippo:Pluto
+74:Sora:Hearts
