@@ -21,6 +21,13 @@ public class AnagrafeGUI extends javax.swing.JFrame {
      */
     public AnagrafeGUI() {
         initComponents();
+        FileWriter fw = null;
+        try{
+           fw = new FileWriter("Anagrafe.txt", true); 
+        } catch (IOException ioe) {
+            System.out.println("Problemi nella scrittura del file di testo");
+        } 
+        
     }
     Anagrafe n = new Anagrafe();
 
@@ -49,6 +56,7 @@ public class AnagrafeGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         lblMatricola.setText("Matricola");
 
@@ -92,9 +100,9 @@ public class AnagrafeGUI extends javax.swing.JFrame {
         btnSalva.setText("Salva");
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-		jLabel1.setForeground(new java.awt.Color(255, 51, 51));
-		jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		jLabel1.setText("Anagrafe");
+        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Anagrafe");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -189,6 +197,7 @@ public class AnagrafeGUI extends javax.swing.JFrame {
 
     private void btnCaricaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaricaActionPerformed
         // TODO add your handling code here:
+        
 
     }//GEN-LAST:event_btnCaricaActionPerformed
 
@@ -201,13 +210,6 @@ public class AnagrafeGUI extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-         FileWriter fw = null;
-         //PrintWriter pw = null;
-        //pw.flush();
-        //creazione file
-        fw = new FileWriter("anagrafe.txt", true);
-       // pw = new PrintWriter(fw);
-
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
