@@ -199,8 +199,17 @@ public class AnagrafeGUI extends javax.swing.JFrame {
     private void btnCercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCercaActionPerformed
         // TODO add your handling code here:
         String matricola = txtMatricola.getText();
-        n.cercaStudente(matricola);
-        txtArea.setText(matricola);
+        // 1. Salvo il risultato della ricerca in un oggetto Studente
+        Studente s = n.cercaStudente(matricola);
+        // 2. Controllo se lo studente è stato effettivamente trovato
+        if (s != null) {
+            // Se esiste, stampo matricola, nome e cognome andando a capo
+            txtArea.setText("Studente Trovato:\n" + "Matricola: " + s.getMatricola() + "\n" + "Nome: " + s.getNome() + "\n"+ "Cognome: " + s.getCognome());
+        } else {
+            // Se s è null, significa che la matricola non c'è
+            txtArea.setText("Nessuno studente trovato con matricola: " + matricola);
+        }
+        // 3. Pulisco le caselle di testo
         txtMatricola.setText("");
         txtNome.setText("");
         txtCognome.setText("");
