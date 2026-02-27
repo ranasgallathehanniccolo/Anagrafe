@@ -6,7 +6,6 @@ package anagrafe;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  *
@@ -197,7 +196,8 @@ public class AnagrafeGUI extends javax.swing.JFrame {
 
     private void btnCaricaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaricaActionPerformed
         // TODO add your handling code here:
-        
+        GestioneFile g = new GestioneFile();
+        g.caricaDaFile(Anagrafe.txt);
 
     }//GEN-LAST:event_btnCaricaActionPerformed
 
