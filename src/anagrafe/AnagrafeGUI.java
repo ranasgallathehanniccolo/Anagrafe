@@ -207,8 +207,25 @@ public class AnagrafeGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCercaActionPerformed
 
     private void btnCaricaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaricaActionPerformed
-        // TODO add your handling code here:
-        g.caricaDaFile("Anagrafe.txt");
+        // 1. Svuota la memoria dell'anagrafe per evitare di duplicare i dati
+        // se premi il tasto "Carica" due volte di fila
+        n.svuotaAnagrafe();
+        // 2. Carica la lista degli studenti dal file salvandola in una variabile
+        java.util.ArrayList<Studente> studentiCaricati = g.caricaDaFile("Anagrafe.txt");
+        // 3. Pulisce la JTextArea per fare spazio ai nuovi dati
+        txtArea.setText("");
+        // 4. Controlla se ci sono dati
+        if (studentiCaricati.isEmpty()) {
+            txtArea.setText("Nessun dato presente nel file.");
+            return;
+        }
+        // 5. Scorre tutti gli studenti caricati
+        for (Studente s : studentiCaricati) {
+            // Li aggiunge alla logica dell'applicazione (le 3 strutture dati)
+            n.aggiungiStudente(s);
+            // Li stampa nella TextArea andando a capo ogni volta
+            txtArea.append(s.toString() + "\n");
+        }
     }//GEN-LAST:event_btnCaricaActionPerformed
 
     private void btnSalvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvaActionPerformed
